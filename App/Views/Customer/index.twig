@@ -1,6 +1,16 @@
 {%  extends "base.html" %}
 
+{% block header %}
+    <a href="/customer/index">Customer main page</a><br>
+{% endblock %}
+
 {% block body %}
-    Customer index page
+    <a href="/customer/add">Add customer</a>
+    <br>
+    <a href="/customer/delete">Delete customer</a>
+    <br>
+    <a href="/customer/listAll">List All customers</a>
+    <br>
+    <a href="/customer/list">List customers</a>
 
 {%  endblock %}

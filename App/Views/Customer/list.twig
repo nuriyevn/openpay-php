@@ -1,0 +1,45 @@
+{% extends "Customer/index.twig" %}
+{% block body %}
+
+    {% if customers is not empty %}
+        List of customers:<br>
+        <table border="1">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Last name</th>
+                <th>Phone number</th>
+            </tr>
+
+        {% for customer in customers %}
+            <tr>
+                <td>{{ customer.id }}</td>
+            <td>
+                {{ customer.name }}
+            </td>
+            <td>
+                {{ customer.last_name }}
+            </td>
+            <td>
+                {{ customer.phone_number }}
+            </td>
+                <td>{{ customer.creation_date }}</td>
+            </tr>
+        {% endfor %}
+
+        </table>
+
+    {% else %}
+        <form action="/customer/doList" type="POST">
+            <h3>Date format YYYY-MM-DD</h3><br>
+            <input type="text" placeholder="Customer creation start date" name="creation_gte">
+            <input type="text" placeholder="Customer creation end data" name="creation_lte">
+            <h4>Offset in the customer list output</h4>
+            <input type="text" name="offset" placeholder="Offset of the customer list" value="0">
+            <h4>Customer list output limited by count</h4>
+            <input type="text" name="limit" placeholder="Ouput limited by count" value="10"><br>
+            <input type="submit" value="Show customers">
+        </form>
+    {% endif %}
+
+{% endblock %}

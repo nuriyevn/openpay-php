@@ -1,0 +1,39 @@
+{% extends "Card/index.twig" %}
+
+{% block body %}
+    {% if cards is not empty %}
+        <h1>List cards:</h1>
+        <table border="1"></table>
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Brand</th>
+            <th>Card Number</th>
+            <th>Holder Name</th>
+            <th>Expiration Year</th>
+            <th>Expiration Month</th>
+        </tr>
+        {% for card in cards %}
+            <tr>
+                <td>{{ card.id }}</td>
+                <td>{{ card.type }}</td>
+                <td>{{ card.brand }}</td>
+                <td>{{ card.card_number }}</td>
+                <td>{{ card.holder_name }}</td>
+                <td>{{ card.expiration_year }}</td>
+                <td>{{ card.expiration_month }}</td>
+            </tr>
+        {% endfor %}
+    {% else %}
+        <form action="/card/doList" type="POST">
+            <h3>Date format YYYY-MM-DD</h3><br>
+            <input type="text" placeholder="Card creation start date" name="creation_gte">
+            <input type="text" placeholder="Card creation end data" name="creation_lte">
+            <h4>Offset in the card list output</h4>
+            <input type="text" name="offset" placeholder="Offset of the card list" value="0">
+            <h4>Card list output limited by count</h4>
+            <input type="text" name="limit" placeholder="Ouput limited by count" value="10"><br>
+            <input type="submit" value="Show cards">
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,16 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Adding customer</title>
-</head>
-<body>
+{% extends "Customer/index.twig" %}
+{% block body %}
 <h1>Adding customer</h1><br>
 
-<form action="/customer/add" type="POST">
+<form action="/customer/doAdd" type="POST">
     <input type="text" name="name" placeholder="name" value="Sasha"><br>
     <input type="text" name="last_name" placeholder="last_name" value="Naumkin"><br>
     <input type="text" name="email" placeholder="email" value="naum.oleks@gmail.com"><br>
@@ -25,5 +17,4 @@
     <input type="submit">
 </form>
 
-</body>
-</html>
+{% endblock %}
