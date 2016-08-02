@@ -14,7 +14,7 @@ class Customer extends \Core\Controller
 
     public function addAction()
     {
-        $openpay = Openpay::getInstance(Config::DB_ID, Config::DB_PRIVATE_KEY);
+        $openpay = \Openpay::getInstance(Config::DB_ID, Config::DB_PRIVATE_KEY);
 
 //	$address = array('line1' => $line1, 'line2' => $line2, 'line3' => $line3,
 //			'postal_code' => $postal_code, 'state' => $state, 'city' => $city,
