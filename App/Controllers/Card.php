@@ -79,8 +79,6 @@ class Card extends \Core\Controller
 
         $cardList = $openpay->cards->getList($findData);
 
-        var_export($cardList);
-
         $cards = [];
 
         for ($i = 0; $i < sizeof($cardList); $i++)
@@ -92,25 +90,31 @@ class Card extends \Core\Controller
                 'card_number' => $cardList[$i]->card_number,
                 'holder_name' => $cardList[$i]->holder_name,
                 'expiration_year' => $cardList[$i]->expiration_year,
-                'expiration_month' => $cardList[$i]->expiration_month);
+                'expiration_month' => $cardList[$i]->expiration_month,
+                'creation_date' => $cardList[$i]->creation_date);
 
             array_push($cards, $card);
         }
         View::renderTemplate("Card/list.twig", array('cards' => $cards));
-
     }
 
-    public function testAction()
+    public function deleteAction()
     {
+        View::renderTemplate("Card/delete.twig");
+    }
+    
+    public function doDeleteAction()
+    {
+        
         $openpay = \Openpay::getInstance(Config::DB_ID, Config::DB_PRIVATE_KEY);
+        $id = $_REQUEST['id'];
+        $card = $openpay->cards->get($id);
+        $card->delete();
+        View::renderTemplate("Card/index.twig");
+    }
 
-        $findData = array(
-            'creation[gte]' => '2013-01-01',
-            'creation[lte]' => '2017-12-31',
-            'offset' => 0,
-            'limit' => 5);
-
-        $cardList = $openpay->cards->getList($findData);
-        var_export($cardList);
+    public function getCardAction()
+    {
+        
     }
 }
