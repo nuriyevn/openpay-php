@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!--    Font awesome icons link cdn-->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
     <!--    Local styles-->
     <style>
@@ -22,9 +23,11 @@
             border-radius: 3px;
 
         }
+
         .th {
             text-align: right;
         }
+
         td, th {
             padding: 5px;
         }
@@ -53,7 +56,7 @@
             </tr>
             <tr>
                 <th class="th">
-                   Email
+                    Email
                 </th>
                 <td>
                     <a href="mailto:someone@example.com?Subject=From%20OpenPay" target="_top">someone@example.com</a>
@@ -82,7 +85,7 @@
                 <td>646180109492454708</td>
             </tr>
         </table>
-        
+
     </div>
 
 </div>
