@@ -40,7 +40,8 @@ class Card extends \Core\Controller
                 'expiration_year' => $_REQUEST['expiration_year'],
                 'address' => $cardAddress);
 
-        $card = $openpay->cards->add($cardData);
+        $customer = $openpay->customers->get($_REQUEST['customer_id']);
+        $card = $customer->cards->add($cardData);
 
         View::renderTemplate("Card/index.twig");
     }
@@ -77,7 +78,15 @@ class Card extends \Core\Controller
             'limit' => $limit
         );
 
-        $cardList = $openpay->cards->getList($findData);
+        if (isset($_REQUEST['customer_id']))
+        {
+            $customer = $openpay->customers->get($_REQUEST['customer_id']);
+            $cardList = $customer->cards->getList($findData);
+        }
+        else
+        {
+            $cardList = $openpay->cards->getList($findData);
+        }
 
         $cards = [];
 
@@ -91,7 +100,9 @@ class Card extends \Core\Controller
                 'holder_name' => $cardList[$i]->holder_name,
                 'expiration_year' => $cardList[$i]->expiration_year,
                 'expiration_month' => $cardList[$i]->expiration_month,
-                'creation_date' => $cardList[$i]->creation_date);
+                'creation_date' => $cardList[$i]->creation_date,
+                'customer_id' => $cardList[$i]->customer_id,
+                'bank_name' => $cardList[$i]->bank_name);
 
             array_push($cards, $card);
         }

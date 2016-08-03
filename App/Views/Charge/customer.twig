@@ -1,0 +1,17 @@
+{% extends "Card/index.twig" %}
+
+
+{%  block body %}
+    <form action="/charge/doCustomer" type="POST">
+        <input type="text" placeholder="Customer ID" name="customer_id"><br>
+        <input type="text" placeholder="Source id" name="source_id"><br>
+        <input type="text" placeholder="Method" name="method"><br>
+        <input type="text" placeholder="Amount" name="amount"><br>
+        <input type="text" placeholder="Description" name="description"><br>
+        <input type="text" placeholder="Order Id" name="order_id"><br>
+        <input type="text" placeholder="Device Session ID" name="device_session_id"><br>
+
+        <input type="submit" value="Charge Customer">
+
+    </form>
+{%  endblock %}

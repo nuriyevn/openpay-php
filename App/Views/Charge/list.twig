@@ -1,0 +1,39 @@
+{% extends "Card/index.twig" %}
+
+{% block body %}
+    {% if charges is not empty %}
+
+        <table>
+            <tr>
+                <th>Customer ID</th>
+                <th>Charge ID</th>
+                <th>Method</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        {% for charge in charges %}
+            <tr>
+                <td>{{ charge.customer_id }}</td>
+                <td>{{ charge.id }}</td>
+                <td>{{ charge.method }}</td>
+                <td>{{ charge.amount }}</td>
+                <td>{{ charge.description }}</td>
+                <td>{{ charge.status }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+    {% else %}
+
+        <form action="/charge/doList" type="POST">
+            <input type="text" placeholder="Customer ID" name="customer_id"><br>
+            <input type="text" placeholder="Creation start date" name="creation_gte"><br>
+            <input type="text" placeholder="Creation end date" name="creation_lte"><br>
+            <input type="text" placeholder="Offset" name="offset" value="0"><br>
+            <input type="text" placeholder="Limit by count" name="limit" value="10">br
+            <input type="submit" value="Show Charges!">
+        </form>
+
+    {%  endif %}
+{% endblock %}

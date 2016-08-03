@@ -13,6 +13,8 @@
             <th>Expiration Year</th>
             <th>Expiration Month</th>
             <th>Creation Date</th>
+            <th>Customer ID</th>
+            <th>Bank Name</th>
         </tr>
         {% for card in cards %}
             <tr>
@@ -24,12 +26,15 @@
                 <td>{{ card.expiration_year }}</td>
                 <td>{{ card.expiration_month }}</td>
                 <td>{{ card.creation_date }}</td>
+                <td>{{ card.customer_id }}</td>
+                <td>{{ card.bank_name }}</td>
             </tr>
         {% endfor %}
         </table>
     {% else %}
         <form action="/card/doList" type="POST">
             <h3>Date format YYYY-MM-DD</h3><br>
+            <input type="text" placeholder="Optional customer id" name="customer_id">
             <input type="text" placeholder="Card creation start date" name="creation_gte">
             <input type="text" placeholder="Card creation end data" name="creation_lte">
             <h4>Offset in the card list output</h4>

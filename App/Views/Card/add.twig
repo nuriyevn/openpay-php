@@ -3,6 +3,7 @@
 {% block body %}
     <h1>Add a card</h1>
     <form action="/card/doAdd" type="POST">
+        <input type="text" placeholder="Customer ID" name="customer_id" value=""><br>
         <input type="text" placeholder="Holder Name" name="holder_name" value="Luis Pérez"><br>
         <input type="text" placeholder="Card Number" name="card_number" value="4111111111111111"><br>
         <input type="text" placeholder="CVV2" name="cvv2" value="123"><br>
