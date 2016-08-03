@@ -3,7 +3,7 @@
 {% block body %}
     {% if cards is not empty %}
         <h1>List cards:</h1>
-        <table border="1"></table>
+        <table border="1">
         <tr>
             <th>ID</th>
             <th>Type</th>
@@ -12,6 +12,7 @@
             <th>Holder Name</th>
             <th>Expiration Year</th>
             <th>Expiration Month</th>
+            <th>Creation Date</th>
         </tr>
         {% for card in cards %}
             <tr>
@@ -22,8 +23,10 @@
                 <td>{{ card.holder_name }}</td>
                 <td>{{ card.expiration_year }}</td>
                 <td>{{ card.expiration_month }}</td>
+                <td>{{ card.creation_date }}</td>
             </tr>
         {% endfor %}
+        </table>
     {% else %}
         <form action="/card/doList" type="POST">
             <h3>Date format YYYY-MM-DD</h3><br>
