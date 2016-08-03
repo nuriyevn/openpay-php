@@ -11,11 +11,14 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--    Font awesome icons link cdn-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
-<!--    Local styles-->
+    <!--    Local styles-->
     <style>
         #header {
-            background-color: #337AB7 ;
+            background-color: #337AB7;
             color: whitesmoke;
             border-radius: 3px;
 
@@ -32,25 +35,29 @@
 <body>
 <div class="row">
     <div class="col-md-offset-1 col-md-10">
-        <h1><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Clients</h1>
+        <h1><i class="fa fa-users" aria-hidden="true"></i></span> Clients</h1>
         <div class="row">
             <table class="table table-condensed">
                 <tr>
-                    <td colspan="6" id="header" class="lead">List of clients</td>
+                    <td colspan="6" id="header" class="lead"><i class="fa fa-bars" aria-hidden="true"></i> List of
+                        clients
+                    </td>
                 </tr>
                 <tr>
-                    <td>Start Date <br>
-                        <input type="date" class="form-control" >
+                    <td><i class="fa fa-calendar" aria-hidden="true"></i> Start Date <br>
+                        <input type="date" class="form-control">
                     </td>
-                    <td>End Date <br>
-                        <input type="date" class="form-control" >
+                    <td><i class="fa fa-calendar" aria-hidden="true"></i> End Date <br>
+                        <input type="date" class="form-control">
                     </td>
-                    <td>Amount <br>
+                    <td><i class="fa fa-sort-numeric-asc" aria-hidden="true"></i> Amount <br>
                         <input type="number" class="form-control" placeholder="Amount to display">
                     </td>
                     <td></td>
                     <td></td>
-                    <td><br><button type="submit" class="btn btn-primary">Refresh</button></td>
+                    <td><br>
+                        <button type="submit" class="btn btn-primary">Refresh</button>
+                    </td>
                 </tr>
                 <tr>
                     <th>Creation</th>
@@ -60,21 +67,25 @@
                     <th>Telephone</th>
                     <th>Balance</th>
                 </tr>
+
+
                 <tr>
                     <td>21 Aug, 2016</td>
                     <td>Kanatnaya str, 55, Odessa, Ukraine, 65000</td>
-                    <td>Some Person Petrovi4</td>
+                    <td><a href="customerDetails.php" title="click for customer details">Some Person Petrovi4</a></td>
                     <td>naum.oleks@gmail.com</td>
                     <td>+380980238180</td>
-                    <td><span class="glyphicon glyphicon-euro" aria-hidden="true"> 38</td>
+                    <td><i class="fa fa-usd" aria-hidden="true"></i> 38</td>
+
                 </tr>
+
                 <tr>
                     <td>01 Jan, 1971</td>
                     <td>Mishugi blrd, 55, Kyiv, Ukraine, 65000</td>
-                    <td>Nusrat Nuriev Hikmet</td>
+                    <td><a href="customerDetails.php" title="click for customer details">Nusrat Nuriev Hikmet</a></td>
                     <td>Nuriyevn@gmail.com</td>
                     <td>+380971234567</td>
-                    <td><span class="glyphicon glyphicon-euro" aria-hidden="true"> 99</td>
+                    <td><i class="fa fa-usd" aria-hidden="true"></i> 99</td>
                 </tr>
             </table>
         </div>
