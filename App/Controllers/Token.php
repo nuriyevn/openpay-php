@@ -12,10 +12,26 @@ class Token extends \Core\Controller
         View::renderTemplate("Token/index.twig");
     }
 
-    public function testAction()
+    public function sessionIdAction()
     {
-        View::renderTemplate("Token/test.twig");
+        View::renderTemplate("Token/sessionId.twig");
     }
+
+    public function createCardTokenAction()
+    {
+        View::renderTemplate("Token/createCardToken.twig");
+    }
+
+    public function getCardToken()
+    {
+        View::renderTemplate("Token/getCardToken.twig");
+    }
+
+    // Javascipt is responsible for creation of card token
+    /*public function doCreateCardAction()
+    {
+        View::renderTemplate("Token/createCard.twig");
+    }*/
 }
 
 ?>

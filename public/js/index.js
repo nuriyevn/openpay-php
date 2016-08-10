@@ -1,8 +1,6 @@
 function displayResultsCard(_message, _response, _sandboxMode)
 {
     console.log(_message + (_response !== null ? ' ' + JSON.stringify(_response) : ''));
-
-    
 }
 
 function successCard(_responseData) {
@@ -19,9 +17,8 @@ $(document).ready(function() {
     var tokenCreateOnSuccess;
     var tokenCreateOnError;
 
-    OpenPay.setId('mfd2pqjabubndytsbea1');
-    OpenPay.setApiKey('pk_b23491f8eebe402e8d2f981001552c3c');
-
+    OpenPay.setId(DB_ID);
+    OpenPay.setApiKey(DB_PUBLIC_KEY);
     OpenPay.setSandboxMode(true);
 
     var tokenObject = OpenPay.token.create({

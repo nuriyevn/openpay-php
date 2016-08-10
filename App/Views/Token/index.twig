@@ -4,6 +4,16 @@
     <a href="/token/index">->Token Main Page</a>
 {% endblock %}
 
+
+{% block body %}
+    <br>
+    <a href="/token/sessionId">Create a device session ID</a>
+    <br>
+    <a href="/token/createCardToken">Create a card token</a>
+    <br>
+    <a href="/token/getCardToken">Get a card</a>
+{% endblock %}
+
 {% block js %}
     {{ parent() }}
     <script src="/js/openpay.v1.min.js"></script>
