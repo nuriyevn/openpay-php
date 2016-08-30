@@ -1,0 +1,11 @@
+{% extends "Payout/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/payout/getdate">->getDate</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Payout Get Date</h1>
+    <p>Current Date is: {{ date }}</p>
+{% endblock %}

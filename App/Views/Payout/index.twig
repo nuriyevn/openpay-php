@@ -1,0 +1,13 @@
+{% extends "base_js.twig" %}
+
+
+{% block header %}
+    {{ parent() }}
+    <a href="/payout/index">->Payout Main page</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Payout Main Page</h1>
+    <a href="/payout/debit">Debit </a><br>
+    <a href="/payout/getdate">Payout Get Date</a><br>
+{% endblock %}

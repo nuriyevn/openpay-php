@@ -1,8 +1,19 @@
 {% extends "Customer/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    {% if customers is empty %}
+        <a href="/customer/list">->Customer list</a>
+    {% else %}
+        <a href="/customer/listAll">->List all customers</a>
+    {% endif %}
+    
+{% endblock %}
+
 {% block body %}
 
     {% if customers is not empty %}
-        List of customers:<br>
+        <h1>List of customers:</h1>
         <table border="1">
             <tr>
                 <th>ID</th>

@@ -2,11 +2,12 @@
 
 {% block header %}
     {{ parent() }}
-    <h1>Get card token</h1>
+    <a href="/token/getCardToken">->Get Card Token</a>
 {% endblock %}
 
 
 {% block body %}
+    <h1>Get card token</h1>
     <br>
     <input type="text" name="id" placeholder="Token ID">
     <br>
@@ -21,5 +22,5 @@
     <script src="/js/openpay.v1.js"></script>
     <script src="/js/openpay-data.v1.js"></script>
     <script src="/js/openpayCredentials.js"></script>
-    <script src="/js/getCardToken.js"></script>
+    <script src="/js/token/getCardToken.js"></script>
 {% endblock %}

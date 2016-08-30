@@ -1,5 +1,10 @@
 {% extends "Card/index.twig" %}
 
+{% block header %}
+    {{ parent() }}
+    <a href="/card/delete">->Delete a card</a>
+{% endblock %}
+
 {% block body %}
     <h1>Delete a card</h1>
     <form action="/card/doDelete" type="POST">

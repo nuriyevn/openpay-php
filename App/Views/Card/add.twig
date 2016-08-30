@@ -1,5 +1,10 @@
 {% extends "Card/index.twig" %}
 
+{% block header %}
+    {{ parent() }}
+    <a href="/card/add">->Add Card</a>
+    {% endblock %}
+
 {% block body %}
     <h1>Add a card</h1>
     <form action="/card/doAdd" type="POST">

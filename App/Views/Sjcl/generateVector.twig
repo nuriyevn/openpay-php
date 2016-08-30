@@ -1,0 +1,19 @@
+{% extends "Sjcl/index.twig" %}
+
+{% block body %}
+    <h1>Generate Vector</h1><br>
+    <p>Count of integer numbers</p>
+    <input type="text" placeholder="count" name="count">
+    <input type="button" name="button" value="Generate!">
+    <p id="result"></p>
+    <input type="button" name="log" value="Log numbers">
+    <input type="button" name="convert" value="Convert to Base64">
+    <p id="base64_result"></p>
+    <p id="base64_replaced"></p>
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="/js/test/genVector.js"></script>
+    <script src="/js/test/sjcl.js"></script>
+{% endblock %}

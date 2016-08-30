@@ -1,17 +1,24 @@
-{% extends "Card/index.twig" %}
-
+{% extends "Charge/index.twig" %}
+{% block header %}
+    {{ parent() }}
+    <a href="/charge/customer">->Create customer charge</a>
+{% endblock %}
 
 {%  block body %}
-    <form action="/charge/doCustomer" type="POST">
-        <input type="text" placeholder="Customer ID" name="customer_id"><br>
-        <input type="text" placeholder="Source id" name="source_id"><br>
-        <input type="text" placeholder="Method" name="method"><br>
-        <input type="text" placeholder="Amount" name="amount"><br>
-        <input type="text" placeholder="Description" name="description"><br>
-        <input type="text" placeholder="Order Id" name="order_id"><br>
-        <input type="text" placeholder="Device Session ID" name="device_session_id"><br>
-
+    <h1>Customer Charge Page</h1>
+    <form action="/charge/doCustomer" type="POST" id="create_charge_form">
+        <input type="text" placeholder="Customer ID" name="customer_id">*<br>
+        <input type="text" placeholder="Source id" name="source_id">*<br>
+        <input type="text" placeholder="Method" name="method" value="card" disabled title="Must contain 'card' value">*<br>
+        <input type="text" placeholder="Amount" name="amount">*<br>
+        <input type="text" placeholder="Description" name="description" value="Test Description" id="device">*<br>
+        <input type="text" placeholder="Order ID is generated from current date" title="Order ID is generated from current date" disabled><br>
+        <input type="text" placeholder="Device Session ID" name="device_session_id">*<input type="button" value="Generate" name="generate_device_id"><br>
         <input type="submit" value="Charge Customer">
-
     </form>
 {%  endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="/js/charge/charge.js"></script>
+{% endblock %}

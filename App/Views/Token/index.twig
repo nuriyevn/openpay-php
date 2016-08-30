@@ -6,6 +6,7 @@
 
 
 {% block body %}
+    <h1>Token Main Page</h1>
     <br>
     <a href="/token/sessionId">Create a device session ID</a>
     <br>
@@ -16,6 +17,8 @@
 
 {% block js %}
     {{ parent() }}
-    <script src="/js/openpay.v1.min.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/js/openpay.v1.js"></script>
+    <script src="/js/openpay-data.v1.js"></script>
+    <script src="/js/openpay-config.js"></script>
+    <script src="/js/token/index.js"></script>
 {% endblock %}

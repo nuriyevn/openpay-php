@@ -1,0 +1,44 @@
+{% extends "Charge/index.twig" %}
+
+{% block header %}
+    {{  parent() }}
+    <a href="/charge/get">->Get a Charge</a>
+{% endblock %}
+
+
+{% block body %}
+    <h1>Get A Charge Page</h1>
+    {% if charge is not empty %}
+
+        {%  twig.vesion %}
+
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>transaction Type</th>
+                <th>Order ID</th>
+                <th>Creation Date</th>
+                <th>amount</th>
+                <th>Customer ID</th>
+                <th>Bank Account</th>
+                <th>Card</th>
+            </tr>
+            <tr>
+                <td>{{ charge.id }}</td>
+                <td>{{ charge.transaction_type }}</td>
+                <td>{{ charge.order_id }}</td>
+                <td>{{ charge.creation_date }}</td>
+                <td>{{ charge.amount }}</td>
+                <td>{{ charge.customer_id }}</td>
+                <td>{{ charge.bank_account }}</td>
+                <td>{{ charge.card }}</td>
+            </tr>
+        </table>
+    {% else %}
+        <form action="/charge/doGet" method="post">
+            <input type="text" name="transaction_id" placeholder="Transaction ID">
+            <input type="submit" value="Get a charge!">
+        </form>
+    {% endif %}
+
+{% endblock %}

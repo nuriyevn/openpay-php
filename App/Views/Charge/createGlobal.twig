@@ -1,0 +1,23 @@
+{% extends "Charge/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/charge/createGlobal">->Create Global Charge</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Create Global Charge</h1>
+    <form action="/charge/doCreateGlobal" method="POST" id="create_charge_form">
+        <input type="text" name="source_id" placeholder="Source id"><br>
+        <input type="text" name="amount" placeholder="Amount"><br>
+        <input type="text" name="device_session_id" placeholder="Device Session Id">
+        <input type="button" name="generate_device_id" value="Generate!"><br>
+        <input type="submit" value="Create Global Charge!"><br>
+    </form>
+
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="/js/charge/charge.js"></script>
+{% endblock %}

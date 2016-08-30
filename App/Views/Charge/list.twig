@@ -1,6 +1,13 @@
-{% extends "Card/index.twig" %}
+{% extends "Charge/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/charge/list">->List customer charges</a>
+{% endblock %}
 
 {% block body %}
+    <h1>List Customer Charges</h1>
+
     {% if charges is not empty %}
 
         <table>
@@ -31,7 +38,7 @@
             <input type="text" placeholder="Creation start date" name="creation_gte"><br>
             <input type="text" placeholder="Creation end date" name="creation_lte"><br>
             <input type="text" placeholder="Offset" name="offset" value="0"><br>
-            <input type="text" placeholder="Limit by count" name="limit" value="10">br
+            <input type="text" placeholder="Limit by count" name="limit" value="10"><br>
             <input type="submit" value="Show Charges!">
         </form>
 

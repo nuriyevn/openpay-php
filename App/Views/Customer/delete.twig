@@ -1,5 +1,10 @@
 {% extends "Customer/index.twig" %}
 
+{% block header %}
+    {{ parent() }}
+    <a href="/customer/delete">->Delete Customer</a>
+{% endblock %}
+
 {% block body %}
     <h1>Delete customer</h1>
     <br>

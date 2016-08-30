@@ -13,8 +13,10 @@ class Sjcl extends \Core\Controller
 
     public function generateVectorAction()
     {
-
+        \Core\View::renderTemplate("Sjcl/generateVector.twig");
     }
+
+
 }
 
 ?>

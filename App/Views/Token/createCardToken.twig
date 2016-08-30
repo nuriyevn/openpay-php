@@ -2,10 +2,12 @@
 
 {% block header %}
     {{ parent() }}
-    <h1>Create a Card token</h1>
+    <a href="/token/createCardToken">->Create card token</a>
+
 {% endblock %}
 
 {% block body %}
+    <h1>Create a Card token</h1>
     <!--form action="/token/doCreateCard" type="POST"-->
     <br>
         <input type="text" placeholder="Card Number" name="card_number" value="4111111111111111"><br>
@@ -33,7 +35,7 @@
     <script src="/js/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
     <script src="/js/openpay.v1.js"></script>
     <script src="/js/openpay-data.v1.js"></script>
-    <script src="/js/openpayCredentials.js"></script>
-    <script src="/js/createCardToken.js"></script>
+    <script src="/js/openpay-config.js"></script>
+    <script src="/js/token/createCardToken.js"></script>
 {% endblock %}
 

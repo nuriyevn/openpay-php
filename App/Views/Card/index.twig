@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 
 {% block header %}
+    {{ parent() }}
     <a href="/card/index">->Card main page</a>
 {% endblock %}
 
 {% block body %}
+
+    <h1>Card Main Page</h1>
     <br>
     <a href="/card/add">Add a card</a>
     <br>
     <a href="/card/delete">Delete a card</a>
     <br>
-    <a href="/card/listAll">List all cards</a>
+    <a href="/card/listAll">List all cards (by openpay)</a>
     <br>
-    <a href="/card/list">List cards</a>
+    <a href="/card/list">List cards (by customer)</a>
     <br>
 {% endblock %}

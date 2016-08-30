@@ -1,5 +1,14 @@
 {% extends "Card/index.twig" %}
 
+{% block header %}
+    {{ parent() }}
+    {% if cards is empty %}
+        <a href="/card/list">->List cards (by customer)</a>
+    {% else %}
+        <a href="/card/listAll">->List all cards (by openpay) </a>
+    {% endif %}
+{% endblock %}
+
 {% block body %}
     {% if cards is not empty %}
         <h1>List cards:</h1>
@@ -32,6 +41,7 @@
         {% endfor %}
         </table>
     {% else %}
+        <p>No cards so far<a/p>
         <form action="/card/doList" type="POST">
             <h3>Date format YYYY-MM-DD</h3><br>
             <input type="text" placeholder="Optional customer id" name="customer_id">

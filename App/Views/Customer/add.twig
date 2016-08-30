@@ -1,4 +1,10 @@
 {% extends "Customer/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/customer/add">->Add Customer</a>
+    {% endblock %}
+
 {% block body %}
 <h1>Adding customer</h1><br>
 

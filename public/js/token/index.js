@@ -7,7 +7,7 @@ function successCard(_responseData) {
     displayResultsCard('Request proceessed successfully: ', _responseData);
 }
 
-function errorCard(_errorResponseDate)
+function errorCard(_errorResponseData)
 {
     displayResultsCard('An error has been ocurred: ', _errorResponseData);
 }
@@ -18,7 +18,7 @@ $(document).ready(function() {
     var tokenCreateOnError;
 
     OpenPay.setId(DB_ID);
-    OpenPay.setApiKey(DB_PUBLIC_KEY);
+    OpenPay.setApiKey(DB_PRIVATE_KEY);
     OpenPay.setSandboxMode(true);
 
     var tokenObject = OpenPay.token.create({

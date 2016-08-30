@@ -1,0 +1,41 @@
+{% extends "Charge/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/charge/listGlobal">->List Global chrages</a>
+{% endblock %}
+
+{% block body %}
+    <h1>List Global Charges</h1>
+
+    {% if charges is not empty  %}
+        <table border="1">
+            <tr>
+                <th>Charge ID</th>
+                <th>Method</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+            {% for charge in charges %}
+                <tr>
+                    <td>{{ charge.id }}</td>
+                    <td>{{ charge.method }}</td>
+                    <td>{{ charge.amount }}</td>
+                    <td>{{ charge.description }}</td>
+                    <td>{{ charge.status }}</td>
+
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <form action="/charge/doListGlobal" method="post">
+            <input type="text" name="creation_gte" placeholder="Creation start date"><br>
+            <input type="text" name="creation_lte" placeholder="Creation end date"><br>
+            <input type="text" name="offset" value="0"><br>
+            <input type="text" name="limit" value="5"><br>
+            <input type="submit" value="List Global charges!">
+        </form>
+    {% endif %}
+
+{% endblock %}

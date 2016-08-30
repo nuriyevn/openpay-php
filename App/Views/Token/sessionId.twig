@@ -47,13 +47,14 @@
 
 
         {{ parent() }}
+        <a href="/token/sessionId">->Create a device session ID</a>
     {% endblock %}
 
 
 
     {% block body %}
 
-    <h1>OpenPay Javascript API Library Test</h1>
+    <h1>Create a Device session ID</h1>
 
     <div class="table">
         <div class="tableRow">
@@ -100,21 +101,7 @@
 
 
     {% block js %}
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <script src="/js/jquery-ui-1.11.4.custom/external/jquery/jquery.js"></script>
-        <script src="/js/openpay.v1.js"></script>
-        <script src="/js/openpay-data.v1.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function(){
-                OpenPay.setSandboxMode(true);
-                // Setup Form after calling setSandboxMode
-                var deviceDataId = OpenPay.deviceData.setup("openpayForm", "deviceIdField");
-                //var deviceDataId = OpenPay.deviceData.setup();
-
-                $('#deviceId').text(deviceDataId);
-                $('#deviceSessionId').val($('#deviceIdField').val());
-            });
-        </script>
+        {{ parent() }}
+        <script src="/js/token/sessionId.js"></script>
 
     {% endblock %}

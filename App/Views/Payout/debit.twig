@@ -1,0 +1,16 @@
+{% extends "Payout/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/payout/debit">->Debit</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Payout from  Debit</h1>
+    <form action="/payout/doDebit" method="POST">
+        <input type="text" name="card" placeholder="Card number"><br>
+        <input type="text" name="amount" placeholder="Amount of payout"><br>
+        <input type="text" name="description" placeholder="Description of transaction" value="Debit Payout "><br>
+        <input type="submit" value="Do Payout"><br>
+    </form>
+{% endblock %}

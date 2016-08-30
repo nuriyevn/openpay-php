@@ -22,7 +22,7 @@ class Token extends \Core\Controller
         View::renderTemplate("Token/createCardToken.twig");
     }
 
-    public function getCardToken()
+    public function getCardTokenAction()
     {
         View::renderTemplate("Token/getCardToken.twig");
     }
