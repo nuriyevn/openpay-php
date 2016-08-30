@@ -271,7 +271,7 @@
                 
                 // TODO
                 //_rhr.open('POST', _url, true);
-                _rhr.open('GET', _url, true);
+                _rhr.open('POST', _url, true);
 
 
                 // set the Credentials flag request header only if there is no

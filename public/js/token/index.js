@@ -18,7 +18,7 @@ $(document).ready(function() {
     var tokenCreateOnError;
 
     OpenPay.setId(DB_ID);
-    OpenPay.setApiKey(DB_PRIVATE_KEY);
+    OpenPay.setApiKey(DB_PUBLIC_KEY);
     OpenPay.setSandboxMode(true);
 
     var tokenObject = OpenPay.token.create({

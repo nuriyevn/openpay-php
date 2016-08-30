@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/test/index">->Test Page</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Test Main Page</h1>
+    <a href="/test/dump">Dump test</a>
+{% endblock %}

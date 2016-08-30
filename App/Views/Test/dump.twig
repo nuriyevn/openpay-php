@@ -1,0 +1,14 @@
+{% extends "Test/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/test/dump">->Dump testing</a>
+{% endblock %}
+
+
+{% block body %}
+    <h1>Dump Testing page</h1>
+    {% if data is not empty %}
+        {{ dump(data) }}
+    {% endif %}
+{% endblock %}

@@ -2,7 +2,7 @@
 
 {% block header %}
     {{ parent() }}
-    <a href="/charge/list">->List customer charges</a>
+    <a href="/charge/listChargesOfCustomer">->List customer charges</a>
 {% endblock %}
 
 {% block body %}
@@ -27,13 +27,14 @@
                 <td>{{ charge.amount }}</td>
                 <td>{{ charge.description }}</td>
                 <td>{{ charge.status }}</td>
+
             </tr>
         {% endfor %}
         </table>
 
     {% else %}
 
-        <form action="/charge/doList" type="POST">
+        <form action="/charge/doListChargesOfCustomer" type="POST">
             <input type="text" placeholder="Customer ID" name="customer_id"><br>
             <input type="text" placeholder="Creation start date" name="creation_gte"><br>
             <input type="text" placeholder="Creation end date" name="creation_lte"><br>

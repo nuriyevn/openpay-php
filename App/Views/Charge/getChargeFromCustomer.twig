@@ -1,0 +1,21 @@
+{% extends "Charge/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/charge/getChargeFromCustomer">_>Get a charge from Customer</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Get A Charge From customer</h1>
+    {% if charge is not empty %}
+    {% else %}
+        <form action="/charge/doGetChargeFromCustomer">
+            <input type="text" name="customer_id" placeholder="Customer ID"><br>
+            <input type="text" name="transaction_id" placeholder="Transaction ID"><br>
+            <input type="submit" value="Get Charge Info From Customer!">
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}

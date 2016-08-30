@@ -2,7 +2,7 @@
 
 {% block header %}
     {{  parent() }}
-    <a href="/charge/get">->Get a Charge</a>
+    <a href="/charge/getGlobal">->Get a Global Charge</a>
 {% endblock %}
 
 
@@ -10,7 +10,9 @@
     <h1>Get A Charge Page</h1>
     {% if charge is not empty %}
 
-        {%  twig.vesion %}
+        {% for key, value in charge|cast_to_array %}
+        {% endfor %}
+
 
         <table border="1">
             <tr>
@@ -24,7 +26,7 @@
                 <th>Card</th>
             </tr>
             <tr>
-                <td>{{ charge.id }}</td>
+                <td>{{ charge.data.id }}</td>
                 <td>{{ charge.transaction_type }}</td>
                 <td>{{ charge.order_id }}</td>
                 <td>{{ charge.creation_date }}</td>
@@ -35,7 +37,7 @@
             </tr>
         </table>
     {% else %}
-        <form action="/charge/doGet" method="post">
+        <form action="/charge/doGetGlobal" method="post">
             <input type="text" name="transaction_id" placeholder="Transaction ID">
             <input type="submit" value="Get a charge!">
         </form>

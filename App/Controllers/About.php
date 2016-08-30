@@ -10,4 +10,6 @@ class About extends \Core\Controller
     {
         View::renderTemplate('About/index.html');
     }
+
+
 }
