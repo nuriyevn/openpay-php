@@ -1,4 +1,5 @@
 nbproject/
+.gitignore
 logs/
 .project
 .idea/
