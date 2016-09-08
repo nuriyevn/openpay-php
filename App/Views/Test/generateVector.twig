@@ -1,4 +1,9 @@
-{% extends "Sjcl/index.twig" %}
+{% extends "Test/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/test/generateVector">->Generate Vector</a>
+{% endblock %}
 
 {% block body %}
     <h1>Generate Vector</h1><br>

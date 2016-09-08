@@ -16,6 +16,12 @@ class Test extends \Core\Controller
 
         \Core\View::renderTemplate('Test/dump.twig', array('data' => $data));
     }
+
+    public function generateVectorAction()
+    {
+        \Core\View::renderTemplate("Test/generateVector.twig");
+    }
+
 };
 
 

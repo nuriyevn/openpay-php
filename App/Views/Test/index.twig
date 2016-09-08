@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_js.twig" %}
 
 {% block header %}
     {{ parent() }}
@@ -7,5 +7,6 @@
 
 {% block body %}
     <h1>Test Main Page</h1>
-    <a href="/test/dump">Dump test</a>
+    <a href="/test/dump">Dump test</a><br>
+    <a href="/test/generateVector">Generate Vector</a><br>
 {% endblock %}
