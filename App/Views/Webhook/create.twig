@@ -1,0 +1,13 @@
+{% extends "Webhook/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/webhook/create">->Create a WebHook</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Create A WebHook page</h1>
+    <form action="/webhook/doCreate">
+
+    </form>
+{% endblock %}

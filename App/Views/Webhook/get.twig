@@ -1,0 +1,19 @@
+{% extends "Webhook/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/webhook/get">Get Webhook</a>
+{% endblock %}
+
+
+{% block body %}
+    <h1>Get Weebhook</h1>
+    {% if result is not empty %}
+        {{ result }}
+    {% else %}
+        <form action="/webhook/doGet" method="post">
+            <input type="text" name = "url" placeholder="Provide Link"><br>
+            <input type="submit" value="Get A Webhook!"><br>
+        </form>
+    {% endif %}
+{% endblock %}

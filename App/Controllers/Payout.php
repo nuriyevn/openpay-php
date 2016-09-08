@@ -44,7 +44,6 @@ class Payout extends \Core\Controller
         \Core\View::renderTemplate("Payout/getdate.twig", array("date" => $date_str));
     }
 
-
     public function payoutAction()
     {
         \Core\View::renderTemplate("Payout/payout.twig");
@@ -72,8 +71,12 @@ class Payout extends \Core\Controller
         $payout = $openpay->payouts->create($payoutData);
     }
 
+    public function getPayoutListAction()
+    {
+        \Core\View::renderTemplate("Payout/getPayoutList.twig");
+    }
 
-    public function getPayoutAction()
+    public function doGetPayoutListAction()
     {
         $openpay = \Openpay::getInstance(Config::DB_ID, Config::DB_PRIVATE_KEY);
 
@@ -81,7 +84,6 @@ class Payout extends \Core\Controller
         $creation_lte = $_REQUEST['creation_lte'];
         $offset = $_REQUEST['offset'];
         $limit = $_REQUEST['limit'];
-
 
         $findData = array(
             'creation[gte]' => $creation_gte,
@@ -91,7 +93,23 @@ class Payout extends \Core\Controller
         );
 
         $payoutList = $openpay->payouts->getList($findData);
-    }
 
+        $list = [];
+        $length = sizeof($payoutList);
+        for ($i = 0; $i < $length; $i++)
+        {
+            //var_dump($payoutList[$i]);
+
+            $item = ['id' => $payoutList[$i]->id,
+                     'status' => $payoutList[$i]->status,
+                     'card_number' => $payoutList[$i]->card->card_number,
+                     'holder_name' => $payoutList[$i]->card->holder_name,
+                    'amount' => $payoutList[$i]->amount,
+                    'description' => $payoutList[$i]->description];
+            array_push($list, $item);
+        }
+
+        \Core\View::renderTemplate("Payout/getPayoutList.twig", array('list' => $list));
+    }
 
 }

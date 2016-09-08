@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/webhook/index">->WebHook Main Page</a>
+{% endblock %}
+
+{% block body %}
+    <h1>WebHook Main Page</h1>
+    <a href="/webhook/create">Create A WebHook</a><br>
+    <a href="/webhook/get">Get A WebHook</a><br>
+{% endblock %}

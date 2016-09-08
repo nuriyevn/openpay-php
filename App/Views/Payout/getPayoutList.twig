@@ -1,0 +1,43 @@
+{% extends "Payout/index.twig" %}
+
+{% block header %}
+    {{ parent() }}
+    <a href="/payout/getPayoutList">->Get Payout List</a>
+{% endblock %}
+
+{% block body  %}
+    <h1>Get Payout List Page</h1>
+    {% if list is not empty %}
+        <table border="1">
+            <tr>
+                <th>Payout Id</th>
+                <th>Status</th>
+                <th>Card Name</th>
+                <th>Card Holder</th>
+                <th>Amount</th>
+                <th>Description</th>
+            </tr>
+
+        {% for item in list  %}
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.status }}</td>
+                <td>{{ item.card_number }}</td>
+                <td>{{ item.holder_name }}</td>
+                <td>{{ item.amount }}</td>
+                <td>{{ item.description }}</td>
+
+
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <form action="/payout/doGetPayoutList">
+            <input type="text" name="creation_gte" placeholder="Creation date from:"><br>
+            <input type="text" name="creation_lte" placeholder="Creation Date to:"><br>
+            <input type="text" name="offset" value="0" placeholder="offset"><br>
+            <input type="text" name="limit" value="10" placeholder="Limit"><br>
+            <input type="submit" value="GetPayoutList Immediately!"><br>
+        </form>
+    {% endif %}
+{% endblock %}
