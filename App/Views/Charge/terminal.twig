@@ -1,0 +1,24 @@
+{%  extends "Charge/index.twig" %}
+
+{% block header %}
+    {{  parent() }}
+    <a href="/charge/createTerminal">->Create Terminal Charge</a>
+{% endblock %}
+
+{% block body %}
+    <h1>Create Terminal Charge Page</h1>
+    {% if charge is not empty %}
+
+    {% else %}
+        <form action="/charge/doCreateTerminal" method="post"><br>
+            <input type="text" name="name" placeholder="Name" value="Nusrat"><br>
+            <input type="text" name="last_name" placeholder="Last Name" value="Nuriyev"><br>
+            <input type="text" name="phone_number" placeholder="Phone Number" value="+380976496329"><br>
+            <input type="text" name="email" placeholder="Email" value="nuriyevn@gmail.com"><br>
+            <input type="text" name="amount" placeholder="Amount    "><br>
+            <input type="text" name="description" placeholder="Description"><br>
+            <input type="text" name="redirect_url" placeholder="Redirect URL" value="http://gurucodes.com"><br>
+            <input type="submit" value="Create!">
+        </form>
+    {% endif %}
+{% endblock %}

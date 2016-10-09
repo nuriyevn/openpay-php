@@ -231,6 +231,45 @@ class Charge extends \Core\Controller
         View::renderTemplate("Charge/listGlobal.twig", array('charges' => $charges));
     }
 
+    public function createTerminalAction()
+    {
+        View::renderTemplate("Charge/terminal.twig");
+    }
+    
+    public function doCreateTerminalAction()
+    {
+        $name = $_REQUEST['name'];
+        $last_name = $_REQUEST['last_name'];
+        $phone_nubmer = $_REQUEST['phone_number'];
+        $email = $_REQUEST['email'];
+        $amount = $_REQUEST['amount'];
+        $description = $_REQUEST['description'];
+        $redirect_url = $_REQUEST['redirect_url'];
+
+
+        $openpay = \Openpay::getInstance(Config::DB_ID, Config::DB_PRIVATE_KEY);
+        $customer = array(
+            'name' => $name,
+            'last_name' => $last_name,
+            'phone_number' => $phone_nubmer,
+            'email' => $email
+        );
+
+
+        $chargeRequest = array(
+            "method" => "card",
+            "amount" => $amount,
+            'description' => $description,
+            'customer' => $customer,
+            'send_email' => false,
+            'confirm' => false,
+            'redirect_url' => $redirect_url
+        );
+        $charge = $openpay->charges->create($chargeRequest);
+        var_dump($charge);
+        View::renderTemplate("Charge/terminal.twig", array('charge' => $charge));
+        
+    }
 
 
     public function createChargeAsCustomerAction()
