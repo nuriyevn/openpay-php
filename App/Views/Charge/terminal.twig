@@ -7,8 +7,8 @@
 
 {% block body %}
     <h1>Create Terminal Charge Page</h1>
-    {% if charge is not empty %}
-
+    {% if charge_url is not empty %}
+        <a href="{{ charge_url }}">{{ charge_url }}</a>
     {% else %}
         <form action="/charge/doCreateTerminal" method="post"><br>
             <input type="text" name="name" placeholder="Name" value="Nusrat"><br>
@@ -18,7 +18,14 @@
             <input type="text" name="amount" placeholder="Amount    "><br>
             <input type="text" name="description" placeholder="Description"><br>
             <input type="text" name="redirect_url" placeholder="Redirect URL" value="http://gurucodes.com"><br>
+            <input type="text" name="device_session_id" placeholder="Device ID">
+            <input type="button" value="Generate" name="generate_device_id"><br>
             <input type="submit" value="Create!">
         </form>
     {% endif %}
+{% endblock %}
+
+{% block js %}
+    {{ parent() }}
+    <script src="/js/charge/charge.js"></script>
 {% endblock %}

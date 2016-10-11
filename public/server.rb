@@ -3,7 +3,6 @@ require 'json'
 
 post '/payload' do
     push = JSON.parse(request.body.read)
-
     puts push
 end
 

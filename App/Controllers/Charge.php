@@ -262,12 +262,29 @@ class Charge extends \Core\Controller
             'description' => $description,
             'customer' => $customer,
             'send_email' => false,
-            'confirm' => false,
-            'redirect_url' => $redirect_url
+            'confirm' => true,
+            'redirect_url' => $redirect_url,
+            'device_session_id' => $_REQUEST['device_session_id']
         );
         $charge = $openpay->charges->create($chargeRequest);
-        var_dump($charge);
-        View::renderTemplate("Charge/terminal.twig", array('charge' => $charge));
+
+        $charge_get = $openpay->charges->get($charge->id);
+
+        var_dump($charge_get);
+
+        $captureData = array('amount' => $amount/2 );
+
+        $charge_get->capture($captureData);
+
+        $refundData = array('description' => 'Devolución' );
+
+        $charge_get->refund($refundData);
+
+
+        //OpenPay.card.validateCardNumber('5555555555554444'); // TRUE. Valid card number and accepted by OpenPay (MASTERCARD)
+        //OpenPay.card.validateCardNumber('378282246310005'); // FALSE. Number of valid card but not accepted by OpenPay (AMEX)
+
+        View::renderTemplate("Charge/terminal.twig", array('charge_url' => $charge->payment_method->url));
         
     }
 
